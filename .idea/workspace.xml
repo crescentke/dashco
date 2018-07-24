@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16528501-5419-403c-ade4-0e35277f4928" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/dashco/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashco/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashcodrf/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashcodrf/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/clients/clients.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/clients/clients.html" afterDir="false" />
@@ -15,6 +16,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dashco/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashcodrf/views.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -30,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
@@ -153,7 +163,6 @@
         <option value="$PROJECT_DIR$/templates/branch/branches.html" />
         <option value="$PROJECT_DIR$/templates/branch/detail.html" />
         <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/dashco/settings.py" />
         <option value="$PROJECT_DIR$/templates/admin/base_site.html" />
         <option value="$PROJECT_DIR$/templates/rest_framework/api.html" />
         <option value="$PROJECT_DIR$/dashcodrf/static/assets/javascript/pages/select2-demo.js" />
@@ -176,6 +185,7 @@
         <option value="$PROJECT_DIR$/dashcodrf/views.py" />
         <option value="$PROJECT_DIR$/templates/clients/clients.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/dashco/settings.py" />
       </list>
     </option>
   </component>
@@ -213,6 +223,11 @@
           <expand>
             <path>
               <item name="dashco" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dashco" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dashco" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dashco" type="462c0819:PsiDirectoryNode" />
               <item name="dashco" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -329,8 +344,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3292683" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22552858" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3292683" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22552858" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -506,13 +521,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dashco/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="145" selection-start-line="145" selection-end-line="145" />
         </state>
       </provider>
     </entry>
@@ -701,6 +709,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dashco/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>
