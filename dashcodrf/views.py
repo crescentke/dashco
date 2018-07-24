@@ -378,7 +378,8 @@ class ApiUserRoutePlanLog(APIView):
         branch_user = get_object_or_404(BranchUser, user=user.id)
         print(branch_user.branch)
 
-        if request.data['action'] is "Account":
+        if request.data['action'] == "Account":
+            new_log.branch = branch_selected
             account = Account()
             account.branch = branch_selected
             account.client = client
@@ -386,6 +387,8 @@ class ApiUserRoutePlanLog(APIView):
             account.slug = slugify(random_code(5))
             account.created_by = user
             account.save()
+        else:
+            new_log.branch = branch_user.branch
 
         new_log.client = client
         new_log.branch = branch_selected
