@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Clients{% endblock %}
+
+{% block content %}
+
+    <header class="page-title-bar">
+        <div class="d-md-flex align-items-md-start">
+
+            <h1 class="page-title mr-sm-auto"> Clients </h1>
+
+            <!-- .btn-toolbar -->
+            <div class="btn-toolbar">
+                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#customerModal">
+                    <span class="ml-1">Add client</span>
+                </button>
+            </div>
+            <!-- /.btn-toolbar -->
+
+            <div class="modal fade has-shown" id="customerModal" tabindex="-1" role="dialog"
+                 aria-labelledby="customerModalLabel" style="display: none;" aria-hidden="true">
+                <!-- .modal-dialog -->
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <!-- .modal-content -->
+                    <div class="modal-content">
+                        <!-- .modal-header -->
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <span>Add new client</span>
+                            </h5>
+                            <button type="button" data-dismiss="modal" class="close">
+                                <span aria-hidden="true">×</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                        </div>
+                        <!-- /.modal-header -->
+                        <form method="post" action="{% url 'client' %}">
+                            <!-- .modal-body -->
+                            <div class="modal-body">
+
+                                {% csrf_token %}
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="{{ client_form.first_name.id_for_label }}">{{ client_form.first_name.label }}</label>
+                                        {{ client_form.first_name }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="{{ client_form.last_name.id_for_label }}">{{ client_form.last_name.label }}</label>
+                                        {{ client_form.last_name }}
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="{{ client_form.dob.id_for_label }}">{{ client_form.dob.label }}</label>
+                                        {{ client_form.dob }}
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="{{ client_form.national_id.id_for_label }}">{{ client_form.national_id.label }}</label>
+                                        {{ client_form.national_id }}
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ client_form.email.id_for_label }}">{{ client_form.email.label }}</label>
+                                    {{ client_form.email }}
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="{{ client_form.phone_number.id_for_label }}">{{ client_form.phone_number.label }}</label>
+                                    {{ client_form.phone_number }}
+                                </div>
+
+                            </div>
+                            <!-- /.modal-body -->
+                            <!-- .modal-footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default-danger" data-dismiss="modal">Cancel
+                                </button>
+                                <button type="submit" class="btn btn-success">Add Client</button>
+                            </div>
+                            <!-- /.modal-footer -->
+                        </form>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+
+        </div>
+    </header>
+
+    {% if clients %}
+
+        <!-- .page-section -->
+        <div class="page-section">
+
+            <!-- .table -->
+            <table id="myTable" class="table">
+                <!-- thead -->
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Client Name</th>
+                    <th>National ID</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Created On</th>
+                </tr>
+                </thead>
+                <!-- /thead -->
+                <!-- tbody -->
+                <tbody>
+
+                {% for client in clients %}
+                    <!-- tr -->
+                    <tr class="click-row" data-url="">
+                        <td>{{ client.id }}</td>
+                        <td class="align-middle"> {{ client.first_name }} {{ client.last_name }} </td>
+                        <td class="align-middle"> {{ client.national_id}}</td>
+                        <td class="align-middle"> {{ client.phone_number }}</td>
+                        <td class="align-middle"> {{ client.email }}</td>
+                        <td class="align-middle"> {{ client.added_on }}</td>
+                    </tr>
+                    <!-- /tr -->
+                {% endfor %}
+
+                </tbody>
+                <!-- /tbody -->
+            </table>
+            <!-- /.table -->
+
+
+        </div>
+        <!-- /.page-section -->
+    {% else %}
+        <section class="empty-state">
+            <!-- .empty-state-container -->
+            <div>
+                <div class="empty-state-message">
+                    <h3 class="state-header"> Clients</h3>
+                    <p class="state-description lead text-muted">You have no active clients.</p>
+                </div>
+            </div>
+            <!-- /.empty-state-container -->
+        </section>
+    {% endif %}
+
+{% endblock %}

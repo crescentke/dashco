@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Branches - {{ branch.name }}{% endblock %}
+
+{% block content %}
+
+    <header class="page-title-bar">
+        <div class="d-md-flex align-items-md-start">
+
+            <h1 class="page-title mr-sm-auto"> {{ branch.name }} Branch </h1>
+
+            <!-- .btn-toolbar -->
+            <div class="btn-toolbar">
+                <button type="button" class="btn btn-danger btn-sm">
+                    <span class="ml-1">Delete Branch</span>
+                </button>
+            </div>
+            <!-- /.btn-toolbar -->
+
+        </div>
+    </header>
+
+
+    <!-- .page-section -->
+    <div class="page-section">
+
+        <div class="row">
+            <div class="col-md-6">
+                <legend>Members assigned</legend>
+
+                {% if branch_users %}
+                    <!-- .table-responsive -->
+                    <div class="table-responsive">
+                        <!-- .table -->
+                        <table class="table">
+                            <!-- thead -->
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th class="align-right">Remove</th>
+                            </tr>
+                            </thead>
+                            <!-- /thead -->
+                            <!-- tbody -->
+                            <tbody>
+
+                            {% for branch_user in branch_users %}
+                                <!-- tr -->
+                                <tr>
+                                    <td>{{ branch_user.user.first_name }} {{ branch_user.user.last_name }}</td>
+                                    <td class="align-right">
+                                        <a href="{% url 'delete_branch_staff' branch_user.branch.slug branch_user.user.id %}"
+                                           class="btn btn-danger btn-xs">
+                                            <i class="fe fe-trash-2"></i>
+                                            Remove
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- /tr -->
+                            {% endfor %}
+
+                            </tbody>
+                            <!-- /tbody -->
+                        </table>
+                        <!-- /.table -->
+                    </div>
+                    <!-- /.table-responsive -->
+                {% else %}
+                    <div>
+                        <div class="empty-state-message">
+                            <p class="state-description lead text-muted">You have no active members assigned to this
+                                branch.</p>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+            <div class="col-md-5 offset-1">
+                <legend>Assign staff</legend>
+                <form method="post" action="{% url 'edit_branch' branch.slug %}">
+                    <div>
+
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label for="{{ branch_staff_form.branch_user.id_for_label }}">{{ branch_staff_form.branch_user.label }}</label>
+                            {{ branch_staff_form.branch_user }}
+
+                            <select id="branch_staff" style="display: none">
+                                <optgroup label="Staff Members">
+                                    <option selected disabled>Select a staff member</option>
+                                    {% for user in users %}
+                                        <option value="{{ user.id }}"> {{ user.first_name }} {{ user.last_name }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Assign to Branch</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- /.page-section -->
+
+
+{% endblock %}

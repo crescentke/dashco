@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Client Accounts{% endblock %}
+
+{% block content %}
+
+    <header class="page-title-bar">
+        <div class="d-md-flex align-items-md-start">
+
+            <h1 class="page-title mr-sm-auto"> Client Accounts </h1>
+
+        </div>
+    </header>
+
+
+
+    {% if accounts %}
+        <!-- .page-section -->
+        <div class="page-section">
+
+            <!-- .table -->
+            <table id="myTable" class="table">
+                <!-- thead -->
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Account NO.</th>
+                    <th>Branch</th>
+                    <th>Client Name</th>
+                    <th>Registered By</th>
+                    <th>Created On</th>
+                </tr>
+                </thead>
+                <!-- /thead -->
+                <!-- tbody -->
+                <tbody>
+
+                {% for account in accounts %}
+                    <!-- tr -->
+                    <tr class="click-row" data-url="">
+                        <td>{{ account.id }}</td>
+                        <td class="align-middle"> {{ account.account_number }}</td>
+                        <td class="align-middle"> {{ account.branch.name }}</td>
+                        <td class="align-middle"> {{ account.client.first_name }} {{ account.client.last_name }} </td>
+                        <td class="align-middle"> {{ account.created_by.first_name }} {{ account.created_by.last_name }} </td>
+                        <td class="align-middle"> {{ account.added_on }}</td>
+                    </tr>
+                    <!-- /tr -->
+                {% endfor %}
+
+                </tbody>
+                <!-- /tbody -->
+            </table>
+            <!-- /.table -->
+
+        </div>
+        <!-- /.page-section -->
+
+    {% else %}
+        <section class="empty-state">
+            <!-- .empty-state-container -->
+            <div>
+                <div class="empty-state-message">
+                    <h3 class="state-header"> Registered accounts</h3>
+                    <p class="state-description lead text-muted">You have not registered any client account.</p>
+                </div>
+            </div>
+            <!-- /.empty-state-container -->
+        </section>
+    {% endif %}
+
+{% endblock %}

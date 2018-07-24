@@ -1,0 +1,27 @@
+.alert ul.errorlist {
+    list-style: none;
+    margin-left: -40px;
+    margin-bottom: 0;
+}
+
+ul.errorlist {
+    list-style: none;
+    margin-left: -40px;
+}
+
+.main-content {
+    min-height: 100%;
+}
+
+.menu-photo img {
+    max-width: 203px !important;
+    max-height: 180px !important;
+}
+
+tr.click-row {
+    cursor: pointer;
+}
+
+tr.click-row:hover {
+    background-color: #f9fbfd;
+}

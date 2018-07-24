@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+
+    <header class="page-title-bar">
+        <h1 class="page-title"> Account settings </h1>
+    </header>
+
+    <div class="page-section">
+
+        <div class="settings-delimiter">
+
+            <div class="row">
+                <div class="col-lg-3 col-md-5">
+                    <legend>Personal information</legend>
+
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {% for field in personal_form %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+
+                        <div class="form-group">
+                            <button class="btn btn-default btn-sm" type="submit">
+                                <span>Update info</span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-5 offset-md-1 offset-sm-0">
+                    <legend>Edit password</legend>
+
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {% for field in password_form %}
+                            <div class="form-group">
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+
+                        <div class="form-group">
+                            <button class="btn btn-default btn-sm" type="submit">
+                                <span>Update Password</span>
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <legend>Delete account</legend>
+                <p>Upon removal, your account becomes unavailable and all the data in it is deleted.</p>
+                <div class="form-group">
+                    <button class="btn btn-default btn-sm" type="submit">
+                        <span>Delete account</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

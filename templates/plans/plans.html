@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Route Plans{% endblock %}
+
+{% block content %}
+
+    <header class="page-title-bar">
+        <div class="d-md-flex align-items-md-start">
+
+            <h1 class="page-title mr-sm-auto"> Route Plans </h1>
+
+        </div>
+    </header>
+
+    <div class="row">
+        <div class="col-md-7">
+
+            {% if plans %}
+
+                <legend>Existing route plans</legend>
+
+                <!-- .page-section -->
+                <div class="page-section">
+
+                    <!-- .table-responsive -->
+                    <div class="table-responsive">
+                        <!-- .table -->
+                        <table class="table">
+                            <!-- thead -->
+                            <thead>
+                            <tr>
+                                <th> Name</th>
+                                <th> Location</th>
+                                <th> Visit Date</th>
+                                <th> Created on</th>
+                            </tr>
+                            </thead>
+                            <!-- /thead -->
+                            <!-- tbody -->
+                            <tbody>
+
+                            {% for plan in plans %}
+                                <!-- tr -->
+                                <tr class="click-row" data-url="">
+                                    <td>{{ plan.user.first_name }} {{ plan.user.last_name }}</td>
+                                    <td class="align-middle"> {{ plan.location }}</td>
+                                    <td class="align-middle"> {{ plan.visit_date }} </td>
+                                    <td class="align-middle"> {{ plan.added_on }} </td>
+                                </tr>
+                                <!-- /tr -->
+                            {% endfor %}
+
+                            </tbody>
+                            <!-- /tbody -->
+                        </table>
+                        <!-- /.table -->
+                    </div>
+                    <!-- /.table-responsive -->
+
+
+                </div>
+                <!-- /.page-section -->
+            {% else %}
+                <section class="empty-state">
+                    <!-- .empty-state-container -->
+                    <div>
+                        <div class="empty-state-message">
+                            <h3 class="state-header"> Route plans</h3>
+                            <p class="state-description lead text-muted">You have no active route plans.</p>
+                        </div>
+                    </div>
+                    <!-- /.empty-state-container -->
+                </section>
+            {% endif %}
+        </div>
+
+        <div class="col-md-5">
+
+            <legend>Add a route plan</legend>
+
+            <form method="post" action="{% url 'plans' %}">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="{{ plan_form.title.id_for_label }}">{{ plan_form.title.label }}</label>
+                    {{ plan_form.title }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ plan_form.plan_user.id_for_label }}">{{ plan_form.plan_user.label }}</label>
+                    {{ plan_form.plan_user }}
+                    <select id="plan_staff" style="display: none">
+                        <optgroup label="Staff Members">
+                            <option selected disabled>Select a staff member</option>
+                            {% for user in users %}
+                                <option value="{{ user.id }}"> {{ user.first_name }} {{ user.last_name }}</option>
+                            {% endfor %}
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="{{ plan_form.visit_date.id_for_label }}">{{ plan_form.visit_date.label }}</label>
+                        {{ plan_form.visit_date }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="{{ plan_form.location.id_for_label }}">{{ plan_form.location.label }}</label>
+                        {{ plan_form.location }}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-success">Add Plan</button>
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

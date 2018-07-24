@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load i18n %}
+    {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <!-- End Required meta tags -->
+
+    <!-- Begin SEO tag -->
+    <title>{% block head_title %} {% trans 'Sign In' %} {% endblock %}</title>
+
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="{% static 'account/fonts/feather/feather.min.css' %}">
+    <link rel="stylesheet" href="{% static 'account/libs/highlight/styles/vs2015.min.css' %}">
+    <link rel="stylesheet" href="{% static 'account/libs/flatpickr/dist/flatpickr.min.css' %}">
+
+    <!-- BEGIN THEME STYLES -->
+    <link rel="stylesheet" href="{% static 'account/css/theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/custom.css' %}">
+    <!-- END THEME STYLES -->
+
+</head>
+<body class="d-flex align-items-center bg-white border-top border-top-2 border-primary">
+
+<!-- CONTENT
+    ================================================== -->
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-6 offset-xl-2 offset-md-1 order-md-2 mb-5 mb-md-0">
+
+            <!-- Image -->
+            <div class="text-center">
+                <img src="{% static 'account/img/illustrations/scale.svg' %}" alt="" class="img-fluid">
+            </div>
+
+        </div>
+        <div class="col-12 col-md-5 col-xl-4 order-md-1">
+
+            {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+
+
+            <!-- Messages -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{% if message.tags == 'success' %}success{% elif message.tags == 'error' %}danger{% endif %}"
+                         role="alert">
+                        {{ message|safe }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div> <!-- / .row -->
+</div> <!-- / .container -->
+
+
+<!-- JAVASCRIPT
+    ================================================== -->
+<!-- Libs JS -->
+<script src="{% static 'account/libs/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'account/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Theme JS -->
+<script src="{% static 'account/js/theme.min.js' %}"></script>
+<script>
+    $("#id_login").addClass('form-control');
+    $("#id_password").addClass('form-control');
+    $("#id_email").addClass('form-control');
+</script>
+</body>
+</html>

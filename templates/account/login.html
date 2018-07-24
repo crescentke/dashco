@@ -1,0 +1,74 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block content %}
+
+    <!-- Heading -->
+    <h1 class="display-4 text-center mb-3">
+        Sign in
+    </h1>
+
+    <!-- Subheading -->
+    <p class="text-muted text-center mb-5">
+        Access your dashboard.
+    </p>
+
+    <!-- Form -->
+    <form method="post" action=".">
+
+        {% csrf_token %}
+
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+
+        <!-- Email address -->
+        <div class="form-group">
+
+            <!-- Label -->
+            <label for="{{ form.login.id_for_label }}">Username or e-mail</label>
+
+            <!-- Input -->
+            {{ form.login }}
+
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+
+            <div class="row">
+                <div class="col">
+
+                    <!-- Label -->
+                    <label for="{{ form.password.id_for_label }}">Password</label>
+
+                </div>
+                <div class="col-auto">
+
+                    <!-- Help text -->
+                    <a href="{% url 'account_reset_password' %}" class="form-text small text-muted">
+                        Forgot password?
+                    </a>
+
+                </div>
+            </div> <!-- / .row -->
+
+            <!-- Input group -->
+            <div class="input-group input-group-merge">
+
+                <!-- Input -->
+                {{ form.password }}
+
+            </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn btn-lg btn-block btn-primary mb-3">
+            Sign in
+        </button>
+
+    </form>
+
+{% endblock %}

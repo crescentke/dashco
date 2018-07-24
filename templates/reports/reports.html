@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+
+    <header class="page-title-bar">
+        <div class="d-md-flex align-items-md-start">
+
+            <h1 class="page-title mr-sm-auto"> Reports </h1>
+
+        </div>
+    </header>
+
+
+
+    {% if logs %}
+        <!-- .page-section -->
+        <div class="page-section">
+
+            <!-- .table -->
+            <table id="myTable" class="table">
+                <!-- thead -->
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Staff Member</th>
+                    <th>Branch</th>
+                    <th>Location</th>
+                    <th>Client Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>National ID</th>
+                    <th>Facility</th>
+                    <th>Action</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <!-- /thead -->
+                <!-- tbody -->
+                <tbody>
+
+                {% for log in logs %}
+                    <!-- tr -->
+                    <tr class="click-row" data-url="">
+                        <td>{{ log.id }}</td>
+                        <td class="align-middle"> {{ log.user.first_name }} {{ log.user.last_name }} </td>
+                        <td class="align-middle"> {{ log.branch.name }}</td>
+                        <td class="align-middle"> {{ log.branch.name }}</td>
+                        <td class="align-middle"> {{ log.client.first_name }} {{ log.client.last_name }}</td>
+                        <td class="align-middle"> {{ log.client.phone_number }}</td>
+                        <td class="align-middle"> {{ log.client.email }}</td>
+                        <td class="align-middle"> {{ log.client.national_id }}</td>
+                        <td class="align-middle"> {{ log.action }}</td>
+                        <td class="align-middle"> {{ log.summary }}</td>
+                        <td class="align-middle"> {{ log.added_on }}</td>
+                    </tr>
+                    <!-- /tr -->
+                {% endfor %}
+
+                </tbody>
+                <!-- /tbody -->
+            </table>
+            <!-- /.table -->
+
+        </div>
+        <!-- /.page-section -->
+
+    {% else %}
+        <section class="empty-state">
+            <!-- .empty-state-container -->
+            <div>
+                <div class="empty-state-message">
+                    <h3 class="state-header"> Reports</h3>
+                    <p class="state-description lead text-muted">You have no active reports.</p>
+                </div>
+            </div>
+            <!-- /.empty-state-container -->
+        </section>
+    {% endif %}
+
+{% endblock %}
