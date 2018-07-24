@@ -81,7 +81,7 @@ class Account(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     account_number = models.IntegerField(unique=True)
-    created_by = models.ForeignKey(User, models.CASCADE, related_name='opened_by')
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='opened_by')
     added_on = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=True)
     slug = models.SlugField(max_length=128, db_index=True)

@@ -355,7 +355,7 @@ class ApiPlanDetail(APIView):
         return Response(serializer.data)
 
 
-class ApiUserRoutePlanLog(APIView):
+class ApiUserRoutePlanLog(View):
     """
     List all route plans
     """

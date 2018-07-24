@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16528501-5419-403c-ade4-0e35277f4928" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashcodrf/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashcodrf/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashcodrf/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashcodrf/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +26,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dashcodrf/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="390" column="47" selection-start-line="390" selection-start-column="47" selection-end-line="390" selection-end-column="47" />
+            <state relative-caret-position="-38">
+              <caret line="357" column="26" selection-start-line="357" selection-start-column="26" selection-end-line="357" selection-end-column="26" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -80,8 +80,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dashcodrf/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="85" column="46" lean-forward="true" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+            <state relative-caret-position="195">
+              <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -175,11 +175,11 @@
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/accounts/accounts.html" />
         <option value="$PROJECT_DIR$/templates/reports/reports.html" />
-        <option value="$PROJECT_DIR$/dashcodrf/models.py" />
         <option value="$PROJECT_DIR$/dashcodrf/forms.py" />
         <option value="$PROJECT_DIR$/templates/clients/clients.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/dashco/settings.py" />
+        <option value="$PROJECT_DIR$/dashcodrf/models.py" />
         <option value="$PROJECT_DIR$/dashcodrf/views.py" />
       </list>
     </option>
@@ -339,7 +339,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3292683" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3292683" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22866093" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
@@ -716,8 +716,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashcodrf/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
-          <caret line="85" column="46" lean-forward="true" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+        <state relative-caret-position="195">
+          <caret line="72" column="31" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -726,8 +726,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dashcodrf/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="390" column="47" selection-start-line="390" selection-start-column="47" selection-end-line="390" selection-end-column="47" />
+        <state relative-caret-position="-38">
+          <caret line="357" column="26" selection-start-line="357" selection-start-column="26" selection-end-line="357" selection-end-column="26" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
