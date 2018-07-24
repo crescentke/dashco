@@ -378,14 +378,13 @@ class ApiUserRoutePlanLog(View):
         branch_user = get_object_or_404(BranchUser, user=user.id)
         print(branch_user.branch)
 
-        new_log.branch = branch_selected
-        account = Account()
-        account.branch = branch_selected
-        account.client = client
-        account.account_number = random_code(10)
-        account.slug = slugify(random_code(5))
-        account.created_by = user
-        account.save()
+        accountn = Account()
+        accountn.branch = branch_selected
+        accountn.client = client
+        accountn.account_number = random_code(10)
+        accountn.slug = slugify(random_code(5))
+        accountn.created_by = user
+        accountn.save()
 
         new_log.client = client
         new_log.branch = branch_selected
@@ -396,7 +395,9 @@ class ApiUserRoutePlanLog(View):
         new_log.summary = request.data['summary']
         new_log.slug = slugify(random_code(5))
         new_log.save()
-        return Response(request.data, status=status.HTTP_201_CREATED)
+
+        log_new = get_object_or_404(RoutePlanLog, id=new_log.id)
+        return Response(log_new, status=status.HTTP_201_CREATED)
 
 
 # Reports
