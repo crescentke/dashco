@@ -378,8 +378,9 @@ class ApiUserRoutePlanLog(APIView):
         branch_user = get_object_or_404(BranchUser, user=user.id)
         print(branch_user.branch)
 
+        branch = ""
         if request.data['action'] == "Account":
-            new_log.branch = branch_selected
+            branch = branch_selected
             account = Account()
             account.branch = branch_selected
             account.client = client
@@ -388,9 +389,10 @@ class ApiUserRoutePlanLog(APIView):
             account.created_by = user
             account.save()
         else:
-            new_log.branch = branch_user.branch
+            branch = branch_user.branch
 
         new_log.client = client
+        new_log.branch = branch
         new_log.location_lat = request.data['location_lat']
         new_log.location_lon = request.data['location_lon']
         new_log.user = branch_user.user
@@ -398,6 +400,7 @@ class ApiUserRoutePlanLog(APIView):
         new_log.summary = request.data['summary']
         new_log.slug = slugify(random_code(5))
         new_log.save()
+
         log_new = get_object_or_404(RoutePlanLog, id=new_log.id)
         return Response(request.data, status=status.HTTP_201_CREATED)
 
