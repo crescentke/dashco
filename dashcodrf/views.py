@@ -372,14 +372,15 @@ class ApiUserRoutePlanLog(APIView):
         user = get_object_or_404(User, username=request.data['user'])
         print(user)
 
-        branch_selected = get_object_or_404(Branch, name=request.data['branch'])
-        print(branch_selected)
-
         branch_user = get_object_or_404(BranchUser, user=user.id)
         print(branch_user.branch)
 
         branch = ""
         if request.data['action'] == "Account":
+
+            branch_selected = get_object_or_404(Branch, name=request.data['branch'])
+            print(branch_selected)
+            
             branch = branch_selected
             account = Account()
             account.branch = branch_selected
