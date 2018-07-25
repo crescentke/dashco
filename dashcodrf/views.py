@@ -360,7 +360,7 @@ class ApiUserRoutePlanLog(View):
     List all route plans
     """
 
-    def post(self, request, format=None):
+    def post(self, request):
         # serializer = RoutePlanLogSerializer(data=request.data)
 
         print("Started")
@@ -397,7 +397,8 @@ class ApiUserRoutePlanLog(View):
         new_log.save()
 
         log_new = get_object_or_404(RoutePlanLog, id=new_log.id)
-        return Response(log_new, status=status.HTTP_201_CREATED)
+        data = serializers.serialize('json', log_new)
+        return HttpResponse(data, content_type="application/json")
 
 
 # Reports
