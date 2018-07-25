@@ -399,7 +399,7 @@ class ApiUserRoutePlanLog(APIView):
         new_log.slug = slugify(random_code(5))
         new_log.save()
         log_new = get_object_or_404(RoutePlanLog, id=new_log.id)
-        return Response(log_new, status=status.HTTP_201_CREATED)
+        return Response(request.data, status=status.HTTP_201_CREATED)
 
 
 # Reports
