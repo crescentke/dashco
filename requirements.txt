@@ -7,7 +7,7 @@ django-allauth==0.36.0
 django-cors-headers==2.3.0
 django-sendgrid-v5==0.6.893
 django-webpack-loader==0.6.0
-djangorestframework==3.8.2
+djangorestframework==3.9.1
 future==0.16.0
 gunicorn==19.6.0
 idna==2.7
